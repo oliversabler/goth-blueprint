@@ -1,0 +1,67 @@
+package components
+
+templ layout(title string) {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			@head(title)
+		</head>
+		<body id="content-body">
+			<div class="wrapper">
+				<header>
+					@header()
+					@navigation()
+				</header>
+				<main>
+					{ children... }
+				</main>
+				<footer>
+					@footer()
+				</footer>
+			</div>
+		</body>
+	</html>
+}
+
+templ head(title string) {
+	<title>{ title }</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="/assets/js/htmx.min.js"></script>
+	<link rel="stylesheet" href="/assets/css/style.css"/>
+}
+
+templ header() {
+	<pre>
+		|::::::::::::::::::::::::::::::::::::::::::::::::|
+		<br/>
+		|:::::' #####:::::::::::: ########:: ##::: ##::::|
+		<br/>
+		|::::' ##:: ##:::::::::::::: ##::::: ##::: ##::::|
+		<br/>
+		|:::: ##:::::::::::::::::::: ##::::: ##::: ##::::|
+		<br/>
+		|:::: ##:: ###::' #####::::: ##::::: ########::::|
+		<br/>
+		|:::: ##::: ##:: ##:: ##:::: ##::::: ##::: ##::::|
+		<br/>
+		|::::. ##:: ##:: ##:: ##:::: ##::::: ##::: ##::::|
+		<br/>
+		|:::::. #####:::. #####::::: ##::::: ##::: ##::::|
+		<br/>
+		|::::::::::::::::::::::::::::::::::::::::::::::::|
+		<br/>
+	</pre>
+}
+
+templ navigation() {
+	<nav>
+		<a href="/" hx-get="/" hx-push-url="true" hx-target="#content-body" hx-swap="innerHTML">Home</a>
+		<a href="/blog" hx-get="/blog" hx-push-url="true" hx-target="#content-body" hx-swap="innerHTML">Blog</a>
+		<a href="/about" hx-get="/about" hx-push-url="true" hx-target="#content-body" hx-swap="innerHTML">About</a>
+	</nav>
+}
+
+templ footer() {
+	<p>This is a footer</p>
+}

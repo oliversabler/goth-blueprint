@@ -1,0 +1,60 @@
+package components
+
+import "github.com/oliversabler/goth-blueprint/services"
+
+templ Home(siteName string) {
+	@layout(siteName + "- home") {
+		<div>
+			<p>
+				Welcome to the GoTH blueprint project. This project is meant to be used as a base web template to get something up and running quickly with Go, Templ and HTMX.
+			</p>
+			<p>
+				This template is very much bare bone, no fancy styling, which gives you the power to use what you are familiar with.
+			</p>
+		</div>
+	}
+}
+
+templ Blog(siteName string, posts []services.Post) {
+	@layout(siteName + "- blog") {
+		<div>
+			<p>
+				Hello, blog!
+			</p>
+			<ul>
+				for _, post := range posts {
+					<li><a href={ templ.URL(post.URI) } hx-get={ post.URI } hx-push-url="true" hx-target="#content-body" hx-swap="outerHTML">{ post.Title }</a></li>
+				}
+			</ul>
+		</div>
+	}
+}
+
+templ Post(siteName string, post services.Post) {
+	@layout(siteName + " - " + post.Title) {
+		<div>
+			<h1>
+				@templ.Raw(post.Title)
+			</h1>
+			<p>
+				<i>Published: </i>
+				<i>
+					@templ.Raw(post.Date.Format("2006-01-02"))
+				</i>
+			</p>
+			<p>
+				@templ.Raw(post.Content)
+			</p>
+		</div>
+	}
+}
+
+templ About(siteName string) {
+	@layout(siteName + "- about") {
+		<div>
+			<p>
+				Hello, about!
+			</p>
+		</div>
+	}
+}
