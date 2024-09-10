@@ -1,3 +1,4 @@
+```
 |::::::::::::::::::::::::::::::::::::::::::::::::|
 |:::::' #####:::::::::::: ########:: ##::: ##::::|
 |::::' ##:: ##:::::::::::::: ##::::: ##::: ##::::|
@@ -9,3 +10,7 @@
 |::::::::::::::::::::::::::::::::::::::::::::::::|
 
 This is a GoTH (Go Templ HTMX) template project.
+
+The project is a bare bone website with blog functionality,
+and the purpose is to serve as inspiration or a template to get up to speed with a new website.
+```
